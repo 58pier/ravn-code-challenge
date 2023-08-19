@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box, Button } from '@mui/material';
 import { PersonStructureInfo } from '../../types/data.type'
 import PersonCell from '../molecules/PersonCell'
 import LoadingCell from '../molecules/LoadingCell'
@@ -9,9 +9,10 @@ interface DrawerProps {
     setPersonSelected: (person: PersonStructureInfo) => void
     loading: boolean
     error?: boolean
+    fetchMoreData?: () => void
 }
 
-const Drawer = ({ peopleData, setPersonSelected, loading, error }: DrawerProps) => {
+const Drawer = ({ peopleData, setPersonSelected, loading, error, fetchMoreData }: DrawerProps) => {
     return (
         <Box
             borderRight={1}
@@ -35,6 +36,20 @@ const Drawer = ({ peopleData, setPersonSelected, loading, error }: DrawerProps) 
                         setPersonSelected={setPersonSelected}
                     />
                 ))
+            }
+            {
+                peopleData &&
+                <Button
+                    variant="contained"
+                    sx={{
+                        width: '100%',
+                        height: '50px',
+                        borderRadius: '0px',
+                    }}
+                    onClick={fetchMoreData}
+                >
+                    Load More
+                </Button>
             }
         </Box>
     )

@@ -15,6 +15,24 @@ const Main = () => {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
 
+    const fetchMoreData = async () => {
+        setLoading(true)
+        fetchPeople(nextUrl)
+            .then(data => {
+                if (!data || error) {
+                    setLoading(false)
+                    setError(true)
+                    return
+                }
+                const { nextUrl: nextUrlNew, data: dataPrepared } = data
+                if (dataPeople) {
+                    setDataPeople([...dataPeople, ...dataPrepared])
+                }
+                setNextUrl(nextUrlNew)
+                setLoading(false)
+            })
+    }
+
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true)
@@ -45,7 +63,7 @@ const Main = () => {
                 flexDirection="row"
                 height="calc(100vh - 52px)"
             >
-                <Drawer peopleData={dataPeople} setPersonSelected={setPersonSelected} loading={loading} error={error} />
+                <Drawer peopleData={dataPeople} setPersonSelected={setPersonSelected} loading={loading} error={error} fetchMoreData={fetchMoreData} />
                 <Info personSelected={personSelected} />
             </Box>
         </Box>
