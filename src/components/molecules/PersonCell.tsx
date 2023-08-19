@@ -1,12 +1,13 @@
 import { Box, IconButton, Typography } from '@mui/material'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import { PersonStructureInfo } from '../../types/data.type';
 
 interface PersonCellProps {
-    name: string
-    description: string
+    person: PersonStructureInfo
+    setPersonSelected: (person: PersonStructureInfo) => void
 }
 
-const PersonCell = ({ name, description }: PersonCellProps) => {
+const PersonCell = ({ person, setPersonSelected }: PersonCellProps) => {
     return (
         <Box
             display="flex"
@@ -20,13 +21,13 @@ const PersonCell = ({ name, description }: PersonCellProps) => {
         >
             <Box
             >
-                <Typography variant="h2">{name}</Typography>
-                <Typography variant="body_low_emphasis">{description}</Typography>
+                <Typography variant="h2">{person.generalInfo.name}</Typography>
+                <Typography variant="body_low_emphasis">{person.generalInfo.race}</Typography>
             </Box>
             <Box
                 marginRight="16px"
             >
-                <IconButton aria-label="Ver">
+                <IconButton aria-label="Ver" onClick={() => setPersonSelected(person)}>
                     <KeyboardArrowRightIcon sx={{
                         fontSize: '24px',
                     }} />
