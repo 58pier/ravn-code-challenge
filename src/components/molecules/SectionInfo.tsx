@@ -6,10 +6,9 @@ import DataCell from './DataCell';
 interface SectionInfoProps {
     title: string;
     data: GeneralInfo | string[];
-    type?: 'array' | 'object';
 }
 
-const SectionInfo = ({ title, data, type = 'object' }: SectionInfoProps) => {
+const SectionInfo = ({ title, data }: SectionInfoProps) => {
 
     return (
         <Box

@@ -1,5 +1,3 @@
-import { Gender, People } from "./response.type";
-
 export interface Data {
     nextUrl: string;
     data: PersonStructureInfo[];
