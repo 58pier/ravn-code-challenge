@@ -1,27 +1,34 @@
-# React + TypeScript + Vite
+# Ravn Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
 
-Currently, two official plugins are available:
+Ravn Challenge es un proyecto desarrollado en React y TypeScript. Este proyecto utiliza las librerías MUI (Material-UI) y react-loader-spinner.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+El diseño de la aplicación se basa en el concepto de Atomic Design, lo que significa que los componentes están organizados en átomos, moléculas, organismos, plantillas y páginas, siguiendo las mejores prácticas de diseño de componentes.
 
-## Expanding the ESLint configuration
+## Despliegue
+https://ravn-challenge-piero-pozo.netlify.app/
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Capturas de Pantalla
 
-- Configure the top-level `parserOptions` property like this:
+![Alt text](image.png)
+![Alt text](image-1.png)
+![Alt text](image-2.png)
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Tecnologías Utilizadas
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- React
+- TypeScript
+- Material-UI (MUI)
+- react-loader-spinner
+
+## Instalación
+
+Para instalar y ejecutar este proyecto en tu entorno local, sigue estos pasos:
+
+1. Clona este repositorio en tu máquina.
+2. Ejecuta `yarn install`.
+3. Para correr el proyecto, ejecuta `yarn start`.
+
+### Autor
+Piero Pozo
