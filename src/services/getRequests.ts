@@ -6,6 +6,9 @@ export const fetchPeople = (url:string) => {
         .then((data) => transformRequest(data))
         .then((dataPrepared) => {
             return dataPrepared;
+        })
+        .catch(() => {
+            return
         });
 };
 

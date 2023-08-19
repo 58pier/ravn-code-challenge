@@ -19,7 +19,9 @@ const Info = ({ personSelected }: InfoProps) => {
                     alignItems="center"
                 >
                     <SectionInfo data={personSelected.generalInfo} title="General Information" />
-                    <SectionInfo data={personSelected.vehiclesInfo} title="Vehicles" />
+                    {
+                        personSelected.vehiclesInfo.length > 0 && <SectionInfo data={personSelected.vehiclesInfo} title="Vehicles" />
+                    }
                 </Box>
             }
         </Box>

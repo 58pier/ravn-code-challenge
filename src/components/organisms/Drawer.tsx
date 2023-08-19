@@ -2,14 +2,16 @@ import { Box } from '@mui/material'
 import { PersonStructureInfo } from '../../types/data.type'
 import PersonCell from '../molecules/PersonCell'
 import LoadingCell from '../molecules/LoadingCell'
+import NoticeCell from '../atoms/NoticeCell'
 
 interface DrawerProps {
     peopleData: PersonStructureInfo[] | null
     setPersonSelected: (person: PersonStructureInfo) => void
     loading: boolean
+    error?: boolean
 }
 
-const Drawer = ({ peopleData, setPersonSelected, loading }: DrawerProps) => {
+const Drawer = ({ peopleData, setPersonSelected, loading, error }: DrawerProps) => {
     return (
         <Box
             borderRight={1}
@@ -23,6 +25,9 @@ const Drawer = ({ peopleData, setPersonSelected, loading }: DrawerProps) => {
                 loading && <LoadingCell />
             }
             {
+                error && <NoticeCell title='Failed to Load Data' />
+            }
+            {
                 peopleData && peopleData.map((person, index) => (
                     <PersonCell
                         key={index}
@@ -34,11 +39,4 @@ const Drawer = ({ peopleData, setPersonSelected, loading }: DrawerProps) => {
         </Box>
     )
 }
-/* <Box
-                        key={index}
-                        onClick={() => setPersonSelected(person)}
-                    >
-                        {person.generalInfo.name}
-                        {person.generalInfo.race + ' from' + person.generalInfo.planet}
-                    </Box> */
 export default Drawer

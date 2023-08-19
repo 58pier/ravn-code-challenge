@@ -13,17 +13,23 @@ const Main = () => {
     const [nextUrl, setNextUrl] = useState('https://swapi.dev/api/people/')
 
     const [loading, setLoading] = useState(true)
+    const [error, setError] = useState(false)
 
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true)
             fetchPeople(nextUrl)
                 .then(data => {
+                    if (!data || error) {
+                        setLoading(false)
+                        setError(true)
+                        return
+                    }
                     const { nextUrl: nextUrlNew, data: dataPrepared } = data
                     setDataPeople(dataPrepared)
                     setNextUrl(nextUrlNew)
                     setLoading(false)
-                });
+                })
         }
         fetchData()
     }, [])
@@ -39,7 +45,7 @@ const Main = () => {
                 flexDirection="row"
                 height="calc(100vh - 52px)"
             >
-                <Drawer peopleData={dataPeople} setPersonSelected={setPersonSelected} loading={loading} />
+                <Drawer peopleData={dataPeople} setPersonSelected={setPersonSelected} loading={loading} error={error} />
                 <Info personSelected={personSelected} />
             </Box>
         </Box>
