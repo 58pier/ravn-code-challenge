@@ -5,7 +5,6 @@ export const fetchPeople = (url:string) => {
         .then((response) => response.json())
         .then((data) => transformRequest(data))
         .then((dataPrepared) => {
-            console.log(dataPrepared);
             return dataPrepared;
         });
 };

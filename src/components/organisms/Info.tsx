@@ -8,17 +8,21 @@ interface InfoProps {
 
 const Info = ({ personSelected }: InfoProps) => {
     return (
-        <>
+        <Box
+            width="70%"
+        >
             {
                 personSelected && <Box
                     display="flex"
                     justifyContent="center"
-                    width="70%"
+                    flexDirection="column"
+                    alignItems="center"
                 >
                     <SectionInfo data={personSelected.generalInfo} title="General Information" />
+                    <SectionInfo data={personSelected.vehiclesInfo} title="Vehicles" />
                 </Box>
             }
-        </>
+        </Box>
     )
 }
 

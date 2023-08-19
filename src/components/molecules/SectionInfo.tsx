@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 import SectionHeader from '../atoms/SectionHeader';
 import { GeneralInfo } from '../../types/data.type';
+import DataCell from './DataCell';
 
 interface SectionInfoProps {
     title: string;
@@ -9,6 +10,7 @@ interface SectionInfoProps {
 }
 
 const SectionInfo = ({ title, data, type = 'object' }: SectionInfoProps) => {
+
     return (
         <Box
             display="flex"
@@ -18,17 +20,17 @@ const SectionInfo = ({ title, data, type = 'object' }: SectionInfoProps) => {
             marginRight="100px"
         >
             <SectionHeader title={title} />
-            {
-                data && !Array.isArray(data) && typeof data === 'object' && Object.keys(data).map((key, index) => {
-                    const value = key as keyof GeneralInfo;
-                    return (
-                        <li key={key}>
-                            <strong>{value}:</strong> {data[value]}
-                        </li>
-                    )
-
-                })
-            }
+            {!Array.isArray(data) && Object.keys(data).map((key) => {
+                const keyType = key as keyof GeneralInfo;
+                return (
+                    <DataCell key={key} key_name={data[keyType].label} value={data[keyType].value} />
+                )
+            })}
+            {Array.isArray(data) && data.map((item, index) => {
+                return (
+                    <DataCell key={index} key_name={item} />
+                )
+            })}
         </Box>
     );
 };

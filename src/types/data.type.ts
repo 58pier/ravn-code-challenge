@@ -11,12 +11,16 @@ export interface PersonStructureInfo {
 }
 
 export interface GeneralInfo {
-    name:       string;
-    race:       string;
-    planet:     string;
-    eye_color:  string;
-    hair_color: string;
-    skin_color: string;
-    birth_year: string;
+    name:       GeneralInfoItem;
+    race:       GeneralInfoItem;
+    planet:     GeneralInfoItem;
+    eye_color:  GeneralInfoItem;
+    hair_color: GeneralInfoItem;
+    skin_color: GeneralInfoItem;
+    birth_year: GeneralInfoItem;
 }
 
+export interface GeneralInfoItem {
+    label: 'Name' | 'Race' | 'Planet' | 'Eye Color' | 'Hair Color' | 'Skin Color' | 'Birth Year';
+    value: string;
+}

@@ -36,14 +36,36 @@ export const transformPerson = (people: People): Promise<PersonStructureInfo> =>
     return Promise.all([vehiclePromise, speciesPromise, planetPromise]).then(
         ([vehiclesInfo, personRace, planetInfo]) => {
         const person: PersonStructureInfo = {
-            generalInfo: {
-            name,
-            race: personRace,
-            planet: planetInfo,
-            eye_color,
-            hair_color,
-            skin_color,
-            birth_year,
+            generalInfo:{
+                name: {
+                    label: 'Name',
+                    value: name,
+                },
+                race: {
+                    value: personRace,
+                    label: 'Race'
+                },
+                planet: {
+                    value: planetInfo,
+                    label: "Planet"
+                },
+                eye_color:{
+                    value: eye_color,
+                    label: "Eye Color"
+                },
+                hair_color:{
+                    value: hair_color,
+                    label: "Hair Color"
+                },
+                skin_color:{
+                    value: skin_color,
+                    label: "Skin Color"
+                },
+                birth_year: {
+                    value: birth_year,
+                    label: "Birth Year"
+                }
+
             },
             vehiclesInfo: vehiclesInfo,
         };
@@ -62,3 +84,32 @@ const getPersonSpecies = (speciesUrls: string[]) => {
 const getPlanetInfo = (planetUrl: string): Promise<string> => {
     return getPlanetaName(planetUrl);
 };
+
+/*              {
+                    label: 'Name',
+                    value: name,
+                },
+                {
+                    value: personRace,
+                    label: 'Race'
+                },
+                {
+                    value: planetInfo,
+                    label: "Planet"
+                },
+                {
+                    value: eye_color,
+                    label: "Eye Color"
+                },
+                {
+                    value: hair_color,
+                    label: "Hair Color"
+                },
+                {
+                    value: skin_color,
+                    label: "Skin Color"
+                },
+                {
+                    value: birth_year,
+                    label: "Birth Year"
+                } */

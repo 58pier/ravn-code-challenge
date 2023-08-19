@@ -21,8 +21,8 @@ const PersonCell = ({ person, setPersonSelected }: PersonCellProps) => {
         >
             <Box
             >
-                <Typography variant="h2">{person.generalInfo.name}</Typography>
-                <Typography variant="body_low_emphasis">{person.generalInfo.race}</Typography>
+                <Typography variant="h2">{person.generalInfo.name.value}</Typography>
+                <Typography variant="body_low_emphasis">{person.generalInfo.race.value}</Typography>
             </Box>
             <Box
                 marginRight="16px"

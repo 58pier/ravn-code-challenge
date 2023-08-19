@@ -1,9 +1,11 @@
 import { Box, Typography } from '@mui/material'
-import React from 'react'
 
-const DataCell = ({
+interface DataCellProps {
+    key_name: string;
+    value?: string;
+}
 
-}) => {
+const DataCell = ({ key_name, value }: DataCellProps) => {
     return (
         <Box
             height="49px"
@@ -15,14 +17,15 @@ const DataCell = ({
             borderBottom="1px solid rgba(0, 0, 0, 0.10);"
         >
             <Typography
-                variant="h2"
+                variant="h2_low_emphasis"
             >
-                Caracteristica
+                {key_name}
             </Typography>
             <Typography
                 marginRight="16px"
+                variant="h2"
             >
-                Blue
+                {value}
             </Typography>
         </Box>
     )

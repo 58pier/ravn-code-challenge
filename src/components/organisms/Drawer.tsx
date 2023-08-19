@@ -15,6 +15,9 @@ const Drawer = ({ peopleData, setPersonSelected, loading }: DrawerProps) => {
             borderRight={1}
             height="100%"
             width="30%"
+            sx={{
+                borderRightColor: '#dbdbdb',
+            }}
         >
             {
                 loading && <LoadingCell />
